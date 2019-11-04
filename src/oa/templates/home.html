@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% if user %}
+    <style>pre{white-space:pre-wrap}</style>
+    <div>Logged in as <strong>{{user}}</strong> (<a href="{{ url_for('.logout') }}">Log Out</a>)</div>
+    <div>(<a href="{{ url_for('.create_client') }}">Create OAuth2 Client</a>)</div>
+
+{% for client in clients %}
+    <pre>
+        {{ client.client_info|tojson }}
+        {{ client.client_metadata|tojson }}
+    </pre>
+    <hr>
+{% endfor %}
+
+{% else %}
+    <form action="" method="post">
+      <input type="text" name="username" placeholder="username">
+      <button type="submit">Login / Signup</button>
+    </form>
+{% endif %}
+
+</body>
+</html>
