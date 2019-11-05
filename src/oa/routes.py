@@ -1,9 +1,3 @@
-"""
-localhost:9000/oauth/authorize?grant_type=password&response_type=code&client_id=mike_id&redirect_uri=http://localhost:9000/api/me
-
-"""
-
-
 import os
 
 from authlib.oauth2 import OAuth2Error

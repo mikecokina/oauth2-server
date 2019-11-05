@@ -135,7 +135,7 @@ Host: localhost:9000
 
 form-data::
 
-    grant_type=authorization_code
+    grant_type=authorization_code&
     &code=1572944246
     &redirect_uri=http://localhost:9000/api/me
     &client_id=mike_id
