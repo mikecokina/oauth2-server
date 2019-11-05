@@ -39,6 +39,9 @@ class OAuth2AuthorizationCode(db.Model, OAuth2AuthorizationCodeMixin):
         db.Integer, db.ForeignKey('user.id', ondelete='CASCADE'))
     user = db.relationship('User')
 
+    def is_expired(self):
+        return self.auth_time + 86400 < time.time()
+
 
 class OAuth2Token(db.Model, OAuth2TokenMixin):
     __tablename__ = 'oauth2_token'
